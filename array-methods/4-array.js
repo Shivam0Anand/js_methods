@@ -30,7 +30,14 @@ var data = [
 // 1 human year = 7 dog year
 
 // your code goes here
-
+var dogYear = 0;
+function totalDogAge() {
+  for (var i = 0; i < data.length; i++) {
+    if (data.type == "dog") dogYear += data.age[i] * 7;
+  }
+}
+totalDogAge();
+dogYear;
 // Solution is 105
 
 // Write the same function using
@@ -39,3 +46,11 @@ var data = [
 // 3. reduce - to accumulate total age.
 
 // Solution 105
+function sumDog() {
+  var typeDog = data.filter(element => element.type == "dog");
+  var dogYear = typeDog.map(element => element.age * 7);
+  var sum = dogYear.reduce((x, y) => x + y);
+
+  return sum;
+}
+sumDog();
